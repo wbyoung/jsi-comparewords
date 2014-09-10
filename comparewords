@@ -20,15 +20,29 @@ if (files.length !== 2) {
   process.exit(1);
 }
 
+var numberOfFilesRead = 0;
+var words1;
+var words2;
+
 fs.readFile(file1, { encoding: 'utf-8' }, function(err, contents1) {
-  var words1 = contents1.split(' ');
-
-  fs.readFile(file2, { encoding: 'utf-8' }, function(err, contents2) {
-    var words2 = contents2.split(' ');
-
-    var common = sharedWords(words1, words2);
-    common.forEach(function(word) {
-      console.log(word);
-    });
-  });
+  words1 = contents1.split(' ');
+  numberOfFilesRead = numberOfFilesRead + 1;
+  if (numberOfFilesRead === 2) {
+    displayCommonWords();
+  }
 });
+
+fs.readFile(file2, { encoding: 'utf-8' }, function(err, contents2) {
+  words2 = contents2.split(' ');
+  numberOfFilesRead = numberOfFilesRead + 1;
+  if (numberOfFilesRead === 2) {
+    displayCommonWords();
+  }
+});
+
+var displayCommonWords = function() {
+  var common = sharedWords(words1, words2);
+  common.forEach(function(word) {
+    console.log(word);
+  });
+};
