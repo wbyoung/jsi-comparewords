@@ -1,0 +1,18 @@
+{
+  "name": "jsi-comparewords",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^1.9.1",
+    "commander": "^2.3.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Whitney Young",
+  "license": "MIT"
+}
